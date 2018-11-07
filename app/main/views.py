@@ -18,3 +18,4 @@ def index():
 @bp.route('/explore')
 def explore():
     return 'explore'
+

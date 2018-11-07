@@ -1,0 +1,118 @@
+2018-11-07 17:35:06,459 ERROR: Exception on /user/test/ [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 65, in test
+    return render_template('main/user/test.html', form=form, depts=depts)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 10, in block "content"
+    {{ wtf.quick_form(form) }}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
+    {{ form_field(field,
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
+    {{field(class="form-control", **kwargs)|safe}}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
+    return self.meta.render_field(self, kwargs)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 56, in render_field
+    return field.widget(field, **render_kw)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
+    for val, label, selected in field.iter_choices():
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
+    for value, label in self.choices:
+TypeError: 'NoneType' object is not iterable
+2018-11-07 17:35:06,563 ERROR: Exception on /user/test/ [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 65, in test
+    return render_template('main/user/test.html', form=form, depts=depts)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 10, in block "content"
+    {{ wtf.quick_form(form) }}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
+    {{ form_field(field,
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
+    {{field(class="form-control", **kwargs)|safe}}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
+    return self.meta.render_field(self, kwargs)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 56, in render_field
+    return field.widget(field, **render_kw)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
+    for val, label, selected in field.iter_choices():
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
+    for value, label in self.choices:
+TypeError: 'NoneType' object is not iterable

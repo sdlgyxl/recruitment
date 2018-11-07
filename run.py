@@ -1,5 +1,9 @@
 from app import create_app, db
-#from app.models import User, Post, Message, Notification, Task
+from app.models.user import User
+from app.models.dept import Dept
+from app.models.module import Module
+from app.models.permission import Permission
+
 
 app = create_app()
 
