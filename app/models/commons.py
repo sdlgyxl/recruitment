@@ -23,6 +23,7 @@ class JobState:
     长假 = 12
     离职 = 20
 
+
 class Privilege:
     禁止 = 0
     本人 = 1

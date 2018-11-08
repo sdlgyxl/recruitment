@@ -1,4 +1,4 @@
-2018-11-07 16:04:19,949 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+2018-11-08 17:15:51,338 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,16 +12,46 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 44, in __init__
-    super(EditUserForm, self).__init__(*args, **kwargs)
-TypeError: super(type, obj): obj must be an instance or subtype of type
-2018-11-07 16:04:48,196 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 16:05:05,987 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 16:05:08,518 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\auth\views.py", line 31, in login
+    return render_template('auth/login.html', title='用户登录', form=form)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 80, in block "content"
+    {% block app_content %}{% endblock %}
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 12, in block "app_content"
+    <p> <a href="{{ url_for('auth.register') }}">新用户注册</a></p>
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'auth.register'. Did you mean 'auth.login' instead?
+2018-11-08 17:15:51,690 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,103 +65,42 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:05:08,567 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "E:\github\mycode\recruitment\app\auth\views.py", line 31, in login
+    return render_template('auth/login.html', title='用户登录', form=form)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 80, in block "content"
+    {% block app_content %}{% endblock %}
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 12, in block "app_content"
+    <p> <a href="{{ url_for('auth.register') }}">新用户注册</a></p>
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
     reraise(exc_type, exc_value, tb)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:05:08,572 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:05:08,580 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:05:08,587 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:05:08,850 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'auth.register'. Did you mean 'auth.login' instead?

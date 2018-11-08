@@ -1,4 +1,4 @@
-2018-11-07 16:46:50,309 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+2018-11-08 17:16:25,521 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,21 +12,19 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 22, in add
-    return render_template('main/user/edit.html', form=form)
+  File "E:\github\mycode\recruitment\app\auth\views.py", line 31, in login
+    return render_template('auth/login.html', title='用户登录', form=form)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
     rv = template.render(context)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
     return self.environment.handle_exception(exc_info, True)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "E:\github\mycode\recruitment\app\templates\main\user\edit.html", line 2, in top-level template code
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
   File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
@@ -38,26 +36,23 @@ Traceback (most recent call last):
     {% block body -%}
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
     {% block content -%}
-  File "E:\github\mycode\recruitment\app\templates\main\user\edit.html", line 9, in block "content"
-    {{ wtf.quick_form(form) }}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
-    {{ form_field(field,
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
-    {{field(class="form-control", **kwargs)|safe}}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
-    return self.meta.render_field(self, kwargs)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 56, in render_field
-    return field.widget(field, **render_kw)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
-    for val, label, selected in field.iter_choices():
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
-    for value, label in self.choices:
-TypeError: 'NoneType' object is not iterable
-2018-11-07 16:46:55,385 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 80, in block "content"
+    {% block app_content %}{% endblock %}
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 12, in block "app_content"
+    <p> <a href="{{ url_for('auth.register') }}">新用户注册</a></p>
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'auth.register'. Did you mean 'auth.login' instead?
+2018-11-08 17:17:19,069 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:17:24,233 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -71,21 +66,19 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 22, in add
-    return render_template('main/user/edit.html', form=form)
+  File "E:\github\mycode\recruitment\app\auth\views.py", line 31, in login
+    return render_template('auth/login.html', title='用户登录', form=form)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
     rv = template.render(context)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
     return self.environment.handle_exception(exc_info, True)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "E:\github\mycode\recruitment\app\templates\main\user\edit.html", line 2, in top-level template code
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
   File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
@@ -97,28 +90,23 @@ Traceback (most recent call last):
     {% block body -%}
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
     {% block content -%}
-  File "E:\github\mycode\recruitment\app\templates\main\user\edit.html", line 9, in block "content"
-    {{ wtf.quick_form(form) }}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
-    {{ form_field(field,
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
-    {{field(class="form-control", **kwargs)|safe}}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
-    return self.meta.render_field(self, kwargs)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 56, in render_field
-    return field.widget(field, **render_kw)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
-    for val, label, selected in field.iter_choices():
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
-    for value, label in self.choices:
-TypeError: 'NoneType' object is not iterable
-2018-11-07 16:47:00,172 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 16:47:09,038 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 16:47:11,292 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\templates\base.html", line 80, in block "content"
+    {% block app_content %}{% endblock %}
+  File "E:\github\mycode\recruitment\app\templates\auth\login.html", line 14, in block "app_content"
+    <a href="{{ url_for('auth.reset_password_request') }}">取回密码</a>
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'auth.reset_password_request'. Did you mean 'auth.explore' instead?
+2018-11-08 17:18:14,970 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:18:59,970 ERROR: Exception on /auth/login [POST] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -132,10 +120,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 49, in __init__
-    self.user = user
-NameError: name 'user' is not defined
+  File "E:\github\mycode\recruitment\app\auth\views.py", line 23, in login
+    if user is None or not user.check_password(form.password.data):
+AttributeError: 'User' object has no attribute 'check_password'
+2018-11-08 17:19:58,339 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]

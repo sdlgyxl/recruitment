@@ -1,4 +1,4 @@
-2018-11-07 16:47:11,382 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+2018-11-08 17:20:04,346 ERROR: Exception on /auth/login [POST] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,14 +12,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 49, in __init__
-    self.user = user
-NameError: name 'user' is not defined
-2018-11-07 16:47:11,666 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\auth\views.py", line 24, in login
+    flash(_('用户名或密码不正确'))
+NameError: name '_' is not defined
+2018-11-08 17:20:23,701 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:20:54,632 ERROR: Exception on /index [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -33,14 +30,22 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 49, in __init__
-    self.user = user
-NameError: name 'user' is not defined
-2018-11-07 16:47:16,689 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in index
+    return render_template('main/index.html', title="首页")
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 133, in render_template
+    ctx.app.update_template_context(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 792, in update_template_context
+    context.update(func())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 368, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:22:10,129 ERROR: Exception on / [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -54,15 +59,23 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 49, in __init__
-    self.user = user
-NameError: name 'user' is not defined
-2018-11-07 16:47:19,651 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 16:47:24,305 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in index
+    return render_template('main/index.html', title="首页")
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 133, in render_template
+    ctx.app.update_template_context(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 792, in update_template_context
+    context.update(func())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 368, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:22:16,626 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:22:19,864 ERROR: Exception on / [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -76,14 +89,22 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 46, in __init__
-    for dept in Dept.query.order_by(Dept.name).all()]
-AttributeError: 'AddUserForm' object has no attribute 'dept'
-2018-11-07 16:47:24,450 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in index
+    return render_template('main/index.html', title="首页")
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 133, in render_template
+    ctx.app.update_template_context(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 792, in update_template_context
+    context.update(func())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 368, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:22:21,667 ERROR: Exception on / [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -97,33 +118,19 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 46, in __init__
-    for dept in Dept.query.order_by(Dept.name).all()]
-AttributeError: 'AddUserForm' object has no attribute 'dept'
-2018-11-07 16:50:23,959 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 17:27:30,210 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 17:27:50,773 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 46, in __init__
-    for dept in Dept.query.order_by(Dept.name).all()]
-AttributeError: 'AddUserForm' object has no attribute 'dept'
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in index
+    return render_template('main/index.html', title="首页")
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 133, in render_template
+    ctx.app.update_template_context(context)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 792, in update_template_context
+    context.update(func())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 368, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:23:50,423 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]

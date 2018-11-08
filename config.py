@@ -11,6 +11,7 @@ class Config(object):
     #SQLALCHEMY_DATABASE_URI = "mssql+pymssql://rtx:C814794AACE44A4B@115.182.7.247/ExampleDb"
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:JinMao80&@115.182.7.247/cleanblog"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
     MAIL_SERVER = os.environ.get('MAIL_SERVER') or 'smtp@126.com'
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)

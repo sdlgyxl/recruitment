@@ -1,134 +1,88 @@
-2018-11-07 16:03:13,322 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+2018-11-08 14:46:32,066 ERROR: Exception on /user/add [GET] [in d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 23, in add
     form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
     return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:03:13,587 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 40, in __init__
+    super(AddUserForm, self).__init__(*args, **kwargs)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask_wtf\form.py", line 88, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 272, in __init__
+    super(Form, self).__init__(self._unbound_fields, meta=meta_obj, prefix=prefix)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 52, in __init__
+    field = meta.bind_field(self, unbound_field, options)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 27, in bind_field
+    return unbound_field.bind(form=form, **options)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 353, in bind
+    return self.field_class(*self.args, **kw)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 449, in __init__
+    super(SelectField, self).__init__(label, validators, **kwargs)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 418, in __init__
+    super(SelectFieldBase, self).__init__(label, validators, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'classmethod'
+2018-11-08 14:46:37,533 ERROR: Exception on /user/add [GET] [in d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 23, in add
     form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
     return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:03:14,854 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:03:14,865 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:03:20,052 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:03:36,269 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
-2018-11-07 16:03:40,131 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
-2018-11-07 16:03:40,216 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 21, in add
-    form = AddUserForm()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'user'
+  File "E:\github\mycode\recruitment\app\main\user\forms.py", line 40, in __init__
+    super(AddUserForm, self).__init__(*args, **kwargs)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\flask_wtf\form.py", line 88, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 272, in __init__
+    super(Form, self).__init__(self._unbound_fields, meta=meta_obj, prefix=prefix)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\form.py", line 52, in __init__
+    field = meta.bind_field(self, unbound_field, options)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 27, in bind_field
+    return unbound_field.bind(form=form, **options)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 353, in bind
+    return self.field_class(*self.args, **kw)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 449, in __init__
+    super(SelectField, self).__init__(label, validators, **kwargs)
+  File "d:\anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 418, in __init__
+    super(SelectFieldBase, self).__init__(label, validators, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'classmethod'
+2018-11-08 14:46:52,866 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 14:52:19,206 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 14:55:15,724 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 15:05:40,764 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 15:40:41,582 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 15:42:57,587 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 15:50:28,377 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 15:54:26,599 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 15:56:11,723 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 16:30:01,863 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 16:33:08,867 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 16:34:15,428 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 16:36:13,321 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 16:38:00,038 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:02:22,419 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:03:08,227 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:06:08,569 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:15:45,790 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]

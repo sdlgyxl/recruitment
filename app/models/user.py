@@ -8,7 +8,9 @@ from datetime import datetime, timedelta
 from app import db, login
 from flask_login import UserMixin
 from .commons import PaginatedAPIMixin
-
+from random import SystemRandom
+from werkzeug._compat import range_type, PY2, text_type, izip, to_bytes, string_types, to_native
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(UserMixin, PaginatedAPIMixin, db.Model):
     __tablename__ = 'users'
@@ -34,4 +36,20 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
         if self.cr_date is None:
-            self.cr_date = datetime.now()
+            self.cr_date = datetime.now()\
+
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))

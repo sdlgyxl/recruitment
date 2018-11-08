@@ -1,4 +1,4 @@
-2018-11-07 17:35:06,459 ERROR: Exception on /user/test/ [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+2018-11-08 17:27:37,712 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,56 +8,26 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 65, in test
-    return render_template('main/user/test.html', form=form, depts=depts)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 10, in block "content"
-    {{ wtf.quick_form(form) }}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
-    {{ form_field(field,
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
-    {{field(class="form-control", **kwargs)|safe}}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
-    return self.meta.render_field(self, kwargs)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 56, in render_field
-    return field.widget(field, **render_kw)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
-    for val, label, selected in field.iter_choices():
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
-    for value, label in self.choices:
-TypeError: 'NoneType' object is not iterable
-2018-11-07 17:35:06,563 ERROR: Exception on /user/test/ [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in before_request
+    if current_user.is_authenticated:
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:27:39,939 ERROR: Exception on / [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -67,52 +37,101 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\github\mycode\recruitment\app\main\user\views.py", line 65, in test
-    return render_template('main/user/test.html', form=form, depts=depts)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in before_request
+    if current_user.is_authenticated:
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:27:42,451 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "E:\github\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\github\mycode\recruitment\app\templates\main\user\test.html", line 10, in block "content"
-    {{ wtf.quick_form(form) }}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
-    {{ form_field(field,
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
-    {{field(class="form-control", **kwargs)|safe}}
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
-    return self.meta.render_field(self, kwargs)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\meta.py", line 56, in render_field
-    return field.widget(field, **render_kw)
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
-    for val, label, selected in field.iter_choices():
-  File "D:\Anaconda3\envs\test_py3\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
-    for value, label in self.choices:
-TypeError: 'NoneType' object is not iterable
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in before_request
+    if current_user.is_authenticated:
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:27:45,643 ERROR: Exception on / [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "E:\github\mycode\recruitment\app\main\views.py", line 16, in before_request
+    if current_user.is_authenticated:
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_login\login_manager.py", line 317, in reload_user
+    "No user_loader has been installed for this "
+Exception: No user_loader has been installed for this LoginManager. Refer tohttps://flask-login.readthedocs.io/en/latest/#how-it-works for more info.
+2018-11-08 17:29:32,168 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-08 17:29:35,709 ERROR: Exception on / [GET] [in D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "E:\github\mycode\recruitment\app\main\views.py", line 20, in before_request
+    g.locale = str(get_locale())
+  File "D:\Anaconda3\envs\test_py3\lib\site-packages\flask_babel\__init__.py", line 253, in get_locale
+    babel = current_app.extensions['babel']
+KeyError: 'babel'
+2018-11-08 17:31:47,745 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
