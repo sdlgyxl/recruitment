@@ -23,6 +23,7 @@ def login():
         if user is None or not user.verify_password(form.password.data):
             flash('用户名或密码不正确')
             return redirect(url_for('auth.login'))
+
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':

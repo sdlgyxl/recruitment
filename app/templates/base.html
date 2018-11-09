@@ -17,31 +17,43 @@
                 <a class="navbar-brand" href="{{ url_for('main.index') }}">首页</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                      <a href="/user/add">
-                      新增用户
-                      </a>
+              <div class="navbar-form navbar-nav">
+                <div class = "dropdown">
+                  <button type="button" class="btn dropdown-toggle" id="dropdownUser" data-toggle="dropdown">
+                    用户管理<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownUser">
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="/user">用户列表</a>
                     </li>
-                </ul>
-                {% if g.search_form %}
-                <form class="navbar-form navbar-left" method="get" action="{{ url_for('main.search') }}">
-                    <div class="form-group">
-                        {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-                    </div>
-                </form>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="/user/add">增加用户</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="navbar-form navbar-left">
+                <div class="dropdown">
+                  <button type="button" class="btn dropdown-toggle" id="dropdownUser" data-toggle="dropdown">
+                    企业管理<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownUser">
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="/user">用户列表</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="/user/add">增加用户</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_anonymous %}
+                  <li><a href="{{ url_for('auth.login') }}">登录</a></li>
+                {% else %}
+                  <li><a href="{{ url_for('auth.logout') }}">退出</a></li>
                 {% endif %}
-                <ul class="nav navbar-nav navbar-right">
-                    {% if current_user.is_anonymous %}
-                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-                    {% else %}
-                    <li>
-                        <b>已登录</b>
-                    </li>
-                    <li><a href="/user/profile">Profile</a></li>
-                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-                    {% endif %}
-                </ul>
+              </ul>
             </div>
         </div>
     </nav>
@@ -60,70 +72,4 @@
         {# application content needs to be provided in the app_content block #}
         {% block app_content %}{% endblock %}
     </div>
-{% endblock %}
-
-{% block scripts %}
-    {{ super() }}
-    <script>
-        function translate(sourceElem, destElem, sourceLang, destLang) {
-            $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
-            $.post('/translate', {
-                text: $(sourceElem).text(),
-                source_language: sourceLang,
-                dest_language: destLang
-            }).done(function(response) {
-                $(destElem).text(response['text'])
-            }).fail(function() {
-                $(destElem).text("Error: Could not contact server.");
-            });
-        }
-        $(function () {
-            var timer = null;
-            var xhr = null;
-            $('.user_popup').hover(
-                function(event) {
-                    // mouse in event handler
-                    var elem = $(event.currentTarget);
-                    timer = setTimeout(function() {
-                        timer = null;
-                        xhr = $.ajax(
-                            '/user/' + elem.first().text().trim() + '/popup').done(
-                                function(data) {
-                                    xhr = null;
-                                    elem.popover({
-                                        trigger: 'manual',
-                                        html: true,
-                                        animation: false,
-                                        container: elem,
-                                        content: data
-                                    }).popover('show');
-                                }
-                            );
-                    }, 1000);
-                },
-                function(event) {
-                    // mouse out event handler
-                    var elem = $(event.currentTarget);
-                    if (timer) {
-                        clearTimeout(timer);
-                        timer = null;
-                    }
-                    else if (xhr) {
-                        xhr.abort();
-                        xhr = null;
-                    }
-                    else {
-                        elem.popover('destroy');
-                    }
-                }
-            );
-        });
-        function set_message_count(n) {
-            $('#message_count').text(n);
-            $('#message_count').css('visibility', n ? 'visible' : 'hidden');
-        }
-        function set_task_progress(task_id, progress) {
-            $('#' + task_id + '-progress').text(progress);
-        }
-    </script>
 {% endblock %}

@@ -13,5 +13,5 @@ def make_shell_context():
     return {'db': db, 'User': User, 'Post': Post, 'Message': Message,
             'Notification': Notification, 'Task': Task}
 '''
-
+print(app.url_map)
 app.run()

@@ -14,6 +14,8 @@ from app.models.user import User
 from app.models.dept import Dept
 from app.models.commons import OfficeLocation, JobState
 from wtforms.fields.html5 import DateField
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+
 office_location_list = []
 for each in vars(OfficeLocation):
     if '_' not in each:
@@ -37,8 +39,7 @@ class AddUserForm(FlaskForm):
     password = StringField("密码", validators=[DataRequired(), Length(8, 8), Regexp('^[1-9][0-9]{7}', 0, '必须是8位数字')], render_kw = {"placeholder": "8位数字"})
     mobile = StringField('手机号',
                          description='* 网站不会泄露您的手机号',
-                         validators=[DataRequired(),
-                                     Regexp('^1[3-9][0-9]{9}', 0, '手机号必须是11位数字')],
+                         validators=[Regexp('(1[3-9][0-9]{9}){0,1}', 0, '手机号必须是11位数字')],
                          render_kw = {"placeholder": "请输入手机号"})
     email = StringField('邮箱', validators=[DataRequired(), Length(1, 64), Email(message=u"邮件格式有误")], render_kw={"placeholder": "E-mail: yourname@example.com"})
     birthday = DateField("出生日期", default='', format='%Y-%m-%d', validators=[DataRequired()])
@@ -46,18 +47,18 @@ class AddUserForm(FlaskForm):
     position = StringField('职务', validators=[DataRequired(), Length(2, 20)])
     office_location = SelectField("办公地点", coerce=int, choices = office_location_list, validators=[DataRequired()])
     job_state = SelectField("工作状态", coerce=int, choices = job_state_list)
-    profile = StringField("个人简介")
-    photo = StringField("照片")
+    profile = TextAreaField("个人简介", render_kw={"style": "height:120px"})
+    photo = FileField("照片", validators=[FileAllowed(['jpg', 'png', 'gif'], '只能是.jpg .gif .png格式')])
     can_login = RadioField("登录状态", coerce=int, choices = [(1, '允许登录'), (0, '禁止登陆')], default=1, render_kw={"class" : "form-inline"} )
-    is_manager = RadioField("部门经理", coerce=int, choices = [(1, '经理'), (0, '职员')], default=0)
+    is_manager = RadioField("部门经理", coerce=int, choices = [(0, '职员'), (1, '经理')], default=0)
     submit = SubmitField('保存')
 
     def __init__(self, *args, **kwargs):
         super(AddUserForm, self).__init__(*args, **kwargs)
         self.dept.choices = [(dept.id, dept.name)
                              for dept in Dept.query.order_by(Dept.superior, Dept.id).all()]
-        self.superior.choices = [(superior.id, superior.name)
-                             for superior in User.query.filter_by(is_manager = 1).order_by(User.id).all()]
+        self.superior.choices = [(superior.id, str(superior.id) + '--' + superior.name)
+                             for superior in User.query.filter_by(is_manager = 1).order_by(User.superior, User.id).all()]
 
 
 class EditUserForm(AddUserForm):
@@ -80,7 +81,13 @@ class EditUserForm(AddUserForm):
     job_state = IntegerField("工作状态")
     can_login = BooleanField("允许登录")
     profile = StringField("个人简介")
-    photo = StringField("照片")
+    photo = FileField("照片",
+                      validators=[
+                          # 文件必须选择;
+                          FileRequired(),
+                          #  指定文件上传的格式;
+                          FileAllowed(['jpg', 'png', 'gif'], '只能是.jpg .gif .png格式')]
+                      )
     submit = SubmitField('保存')
 
     def __init__(self, user, *args, **kwargs):
@@ -108,11 +115,14 @@ class EditUserForm(AddUserForm):
 
 
 class TestForm(FlaskForm):
-    name = StringField('What is your name?', validators=[DataRequired()])
-    dept = SelectField('部门', coerce=int)
-    submit = SubmitField('Submit')
+    #name = StringField('姓名', validators=[DataRequired()])
+    #dept = StringField('部门')
+    photo = FileField("照片",
+                     validators=[
+                         # 文件必须选择;
+                         FileRequired(),
+                         #  指定文件上传的格式;
+                         FileAllowed(['jpg', 'png', 'gif'], '只能是.jpg .gif .png格式')]
+                      )
+    submit = SubmitField('确定')
 
-    def __init__(self, *args, **kwargs):
-        super(TestForm, self).__init__(*args, **kwargs)
-        self.dept.choices = [(dept.id, dept.name)
-                             for dept in User.query.filter_by(is_manager = 1).order_by(User.name).all()]

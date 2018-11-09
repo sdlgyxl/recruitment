@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
-{% block content %}
+{% block app_content %}
   <div class="page-header">
     <h1>test</h1>
   </div>
   <div class="col-md-12">
-  <div class="col-md-4">
-    {{ wtf.quick_form(form, form_type="horizontal") }}
+    <div class="col-md-4">
+      {{ wtf.quick_form(form, form_type="horizontal") }}
+    </div>
   </div>
-  </div>
-  <p>
-  {% for each in depts %}
-    <p>{{ each.name }}</p>
-  {% endfor %}
+  <div>
+  {% for each in msg %}
+  {{ each }}
+  {%  endfor %}
   </div>
 {% endblock %}
