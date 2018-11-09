@@ -1,0 +1,137 @@
+2018-11-09 16:53:25,650 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 16:54:02,727 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 16:54:11,882 ERROR: Exception on /user/edit/1001 [GET] [in D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 80, in user_edit
+    form.confirmed.data = user.confirmed
+AttributeError: 'User' object has no attribute 'confirmed'
+2018-11-09 16:56:35,281 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 16:56:56,808 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 16:59:55,937 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:00:02,977 ERROR: Exception on /user/add [GET] [in D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 33, in user_add
+    form = AddUserForm()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\wtforms\form.py", line 212, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'user'
+2018-11-09 17:00:40,841 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:00:54,839 ERROR: Exception on /user/edit/1001 [GET] [in D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 80, in user_edit
+    form.confirmed.data = user.confirmed
+AttributeError: 'User' object has no attribute 'confirmed'
+2018-11-09 17:01:55,275 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:01:58,619 ERROR: Exception on /user/edit/1001 [GET] [in D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 81, in user_edit
+    return render_template('edit_profile.html', form=form, user=user)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "D:\Anaconda3\envs\py37\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "D:\Anaconda3\envs\py37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: edit_profile.html
+2018-11-09 17:02:26,572 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:03:53,737 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:12:03,121 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:12:07,551 ERROR: Exception on /user/edit/1010 [GET] [in D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 97, in user_edit
+    form.password.data = user.password
+  File "E:\github\mycode\recruitment\app\models\user.py", line 47, in password
+    raise AttributeError('password is not a readable attribute')
+AttributeError: password is not a readable attribute
+2018-11-09 17:12:50,554 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:13:47,090 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]
+2018-11-09 17:13:51,237 ERROR: Exception on /user/edit/1010 [POST] [in D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\github\mycode\recruitment\app\main\user\views.py", line 71, in user_edit
+    form.photo.data.save(photofile)
+  File "D:\Anaconda3\envs\py37\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads/photo/154175483123686.png'
+2018-11-09 17:14:25,321 INFO: 公司后台 startup [in E:\github\mycode\recruitment\app\__init__.py:85]

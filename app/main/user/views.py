@@ -30,8 +30,7 @@ def user_index():
 @rp.route("/add", methods=['GET', 'POST'])
 @login_required
 def user_add():
-    form = AddUserForm()
-    print('form.birthday.data=', form.birthday.data)
+    form = AddUserForm(None)
     if form.validate_on_submit():
         photofile = None
         if form.photo.data:
@@ -60,30 +59,54 @@ def user_add():
         return redirect(url_for('main.user_add'))
     return render_template('main/user/edit.html', form=form)
 
-@rp.route("/edit/<id>")
+@rp.route("/edit/<id>", methods=['GET', 'POST'])
 def user_edit(id):
     user = User.query.get_or_404(id)
-    form = EditUserForm(user=user)
+    form = AddUserForm(user=user)
     if form.validate_on_submit():
-        user.email = form.email.data
-        user.username = form.username.data
-        user.confirmed = form.confirmed.data
-        #user.role = Role.query.get(form.role.data)
+        photofile = None
+        if form.photo.data:
+            fileext = form.photo.data.filename.split('.')[-1]
+            photofile = 'app/static/uploads/photo/' + str(datetime.now().timestamp()).replace('.', '') + '.' + fileext
+            form.photo.data.save(photofile)
+            photofile = photofile.replace('app/static/', '')
+        user.id = form.id.data
         user.name = form.name.data
-        user.location = form.location.data
-        user.about_me = form.about_me.data
+        user.username = form.username.data
+        user.dept_id = form.dept.data
+        user.superior = form.superior.data
+        user.mobile = form.mobile.data
+        user.email = form.email.data
+        user.birthday = form.birthday.data
+        user.entrydate = form.entrydate.data
+        user.position = form.position.data
+        user.office_location = form.office_location.data
+        user.job_state = form.job_state.data
+        user.profile = form.profile.data
+        user.photo = photofile
+        user.can_login = form.can_login.data
+        user.is_manager = form.is_manager.data
         db.session.add(user)
-        db.session.commit()
         flash('The profile has been updated.')
-        return redirect(url_for('.user', username=user.username))
-    form.email.data = user.email
-    form.username.data = user.username
-    form.confirmed.data = user.confirmed
-    form.role.data = user.role_id
+        return redirect(url_for('main.user_index'))
+    form.id.data = user.id
     form.name.data = user.name
-    form.location.data = user.location
-    form.about_me.data = user.about_me
-    return render_template('edit_profile.html', form=form, user=user)
+    form.username.data = user.username
+    form.dept.data = user.dept
+    form.superior.data = user.superior
+    form.mobile.data = user.mobile
+    form.email.data = user.email
+    form.birthday.data = user.birthday
+    form.entrydate.data = user.entrydate
+    form.position.data = user.position
+    form.office_location.data = user.office_location
+    form.job_state.data = user.job_state
+    form.profile.data = user.profile
+    form.photo.data = user.photo
+    form.can_login.data = user.can_login
+    form.is_manager.data = user.is_manager
+
+    return render_template('main/user/edit.html', form=form, user=user)
 
 @rp.route("/delete/<id>")
 def user_delete(id):

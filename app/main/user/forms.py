@@ -53,13 +53,14 @@ class AddUserForm(FlaskForm):
     is_manager = RadioField("部门经理", coerce=int, choices = [(0, '职员'), (1, '经理')], default=0)
     submit = SubmitField('保存')
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, user, *args, **kwargs):
         super(AddUserForm, self).__init__(*args, **kwargs)
         self.dept.choices = [(dept.id, dept.name)
                              for dept in Dept.query.order_by(Dept.superior, Dept.id).all()]
         self.superior.choices = [(superior.id, str(superior.id) + '--' + superior.name)
                              for superior in User.query.filter_by(is_manager = 1).order_by(User.superior, User.id).all()]
-
+        if user:
+            self.user = user
 
 class EditUserForm(AddUserForm):
     id = IntegerField("工号")
