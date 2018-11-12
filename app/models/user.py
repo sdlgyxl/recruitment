@@ -9,10 +9,34 @@ from datetime import datetime, timedelta
 from app import db, login
 from flask_login import UserMixin
 from .commons import PaginatedAPIMixin
-from random import SystemRandom
-from werkzeug._compat import range_type, PY2, text_type, izip, to_bytes, string_types, to_native
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.commons import OfficeLocation, JobState
+
+class Dept(db.Model):
+    __tablename__ = 'depts'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), index=True)
+    superior = db.Column(db.Integer, db.ForeignKey('depts.id'))
+    is_active = db.Column(db.Boolean)
+    cr_date = db.Column(db.Date)
+    cancel_date = db.Column(db.Date)
+'''
+Permission = db.Table('permissions',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('role_id', db.Integer, db.ForeignKey('roles.id')),
+    db.Column('privilege', db.Integer))
+'''
+class Permission(db.Model):
+    __tablename__ = 'permissions'
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'), primary_key=True)
+    privilege = db.Column(db.Integer)
+
+
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20))
 
 class User(UserMixin, PaginatedAPIMixin, db.Model):
     __tablename__ = 'users'
@@ -36,6 +60,20 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
     profile = db.Column(db.String(200))
     photo = db.Column(db.String(50))
     cr_date = db.Column(db.Date)
+    '''
+    permissions = db.relationship('Permission',
+                               backref=db.backref('permissions', lazy='joined'),
+                               lazy='dynamic')
+    '''
+    '''
+    roles = db.relationship('Role', secondary=Permission,
+                              backref=db.backref('users', lazy='dynamic'), lazy='dynamic')
+    '''
+    permissions = db.relationship('Permission',
+                               foreign_keys=[Permission.user_id],
+                               backref=db.backref('r', lazy='joined'),
+                               lazy='dynamic',
+                               cascade='all, delete-orphan')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
@@ -90,6 +128,18 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
         else:
             return "禁止"
 
+
+    def can(self, perm, privi):
+        for each in self.roles:
+            if each.role_id == perm and each.privilege >= privi:
+                return True
+        return False
+
+    def can2(self, perm, privi):
+        for each in self.roles:
+            if each.role_id == perm and each.privilege >= privi:
+                return True
+        return False
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))

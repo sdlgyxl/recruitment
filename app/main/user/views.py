@@ -7,30 +7,40 @@
 from datetime import datetime
 from flask import render_template, redirect, url_for, abort, flash, request, current_app, make_response
 from flask_login import current_user, login_required
-from .forms import EditUserForm, AddUserForm, TestForm
+from .forms import EditUserForm, AddUserForm, TestForm, UserSearchForm
 from app import db
-from app.models.user import User
-from app.models.dept import Dept
-
+from app.models.user import User, Dept
+from sqlalchemy import or_
 from app.libs.redprint import Redprint
 rp = Redprint('user')
 
 @rp.route("/")
-@rp.route("/index/")
-def user_index():
+@rp.route("/index/", methods=['GET', 'POST'])
+@login_required
+def user_index(query=None):
     page = request.args.get('page', 1, type=int)
-    pagination = User.query.order_by(User.id).paginate(page, current_app.config['POSTS_PER_PAGE'], False)
+    query = request.args.get('q', '').strip()
+    if query:
+        query = query.replace("'", "")
+        c = or_(User.name.like('%{}%'.format(query)), User.username.like('%{}%'.format(query)))
+        c += or_(User.position.like('%{}%'.format(query)))
+        users = User.query.filter(c).order_by(User.id)
+    else:
+        users = User.query.order_by(User.id)
+    pagination = users.paginate(page, current_app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('main.user_index', page=pagination.next_num) if pagination.has_next else None
-    prev_url = url_for('main.user_index', page=pagination.prev_num) if pagination.has_prev else None
+    #next_url = url_for('main.user_index', page=pagination.next_num, q=query) if pagination.has_next else None
+    #prev_url = url_for('main.user_index', page=pagination.prev_num, q=query) if pagination.has_prev else None
+    searchform=UserSearchForm()
+    searchform.q.data = query
     return render_template('main/user/index.html', users=pagination.items, pagination=pagination,
-                           title='用户列表', next_url=next_url, prev_url=prev_url)
+                           title='用户列表', page=page, form=searchform, q=query)
 
 
 @rp.route("/add", methods=['GET', 'POST'])
 @login_required
 def user_add():
-    form = AddUserForm(None)
+    form = AddUserForm()
     if form.validate_on_submit():
         photofile = None
         if form.photo.data:
@@ -61,8 +71,9 @@ def user_add():
 
 @rp.route("/edit/<id>", methods=['GET', 'POST'])
 def user_edit(id):
+    page = request.args.get('page', 1, type=int)
     user = User.query.get_or_404(id)
-    form = AddUserForm(user=user)
+    form = EditUserForm(user=user)
     if form.validate_on_submit():
         photofile = None
         if form.photo.data:
@@ -88,7 +99,7 @@ def user_edit(id):
         user.is_manager = form.is_manager.data
         db.session.add(user)
         flash('The profile has been updated.')
-        return redirect(url_for('main.user_index'))
+        return redirect(url_for('main.user_index', page=page))
     form.id.data = user.id
     form.name.data = user.name
     form.username.data = user.username
@@ -100,7 +111,7 @@ def user_edit(id):
     form.entrydate.data = user.entrydate
     form.position.data = user.position
     form.office_location.data = user.office_location
-    form.job_state.data = user.job_state
+    form.job_state.data = user.job_state or 0
     form.profile.data = user.profile
     form.photo.data = user.photo
     form.can_login.data = user.can_login

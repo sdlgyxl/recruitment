@@ -14,14 +14,22 @@ class OfficeLocation:
     北京 = 30
     上海 = 40
 
+OfficeLocationChoices = [(OfficeLocation.__dict__[x], x)
+                         for x in vars(OfficeLocation) if '_' not in x]
+
+
 class JobState:
-    试用 = 0
     正式 = 1
-    实习 = 5
+    试用 = 5
+    实习 = 7
     停薪留职 = 10
     产假 = 11
     长假 = 12
     离职 = 20
+
+
+JobStateChoices = [(JobState.__dict__[x], x)
+                   for x in vars(JobState) if '_' not in x]
 
 
 class Privilege:

@@ -1,0 +1,114 @@
+2018-11-10 20:11:02,337 ERROR: Exception on /user/index/张 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 27, in user_index
+    users = User.query.filter_by(User.name.like('%%s%' % query.replace("'", ""))).order_by(User.id)
+ValueError: incomplete format
+2018-11-10 20:12:19,772 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:12:25,359 ERROR: Exception on /user/index/张 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 28, in user_index
+    users = User.query.filter_by(User.name.like('%' + query + '%')).order_by(User.id)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2018-11-10 20:12:53,386 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:16:34,285 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:16:40,531 ERROR: Exception on /user/index/张 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 28, in user_index
+    users = User.query.filter(or_(User.name.like('%' + query + '%'), User.username.like('%' + query + '%'))).order_by(User.id)
+NameError: name 'or_' is not defined
+2018-11-10 20:18:41,993 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:19:34,745 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:20:38,052 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:20:42,749 ERROR: Exception on /user/index/s [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 26, in user_index
+    users = User.query.filter(or_(User.name.like('%{]%'.format(query)), User.username.like('%{]%'.format(query)))).order_by(User.id)
+ValueError: expected '}' before end of string
+2018-11-10 20:21:18,841 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:24:35,264 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:24:40,535 ERROR: Exception on /user/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 24, in user_index
+    query = query.replace("'", "")
+AttributeError: 'NoneType' object has no attribute 'replace'
+2018-11-10 20:25:09,171 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:38:41,348 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:51:24,758 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:56:48,771 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:58:07,595 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:59:11,098 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:01:08,003 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:03:23,735 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:04:24,145 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:06:20,328 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:09:41,916 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
