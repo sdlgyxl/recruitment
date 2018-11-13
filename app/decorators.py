@@ -1,19 +1,14 @@
 from functools import wraps
 from flask import abort
 from flask_login import current_user
-from .models.permission import Permission
+from .models.user import User
 
-
-def permission_required(permission):
+def role_required(rolename):
     def decorator(f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
-            if not current_user.can(permission):
+            if not current_user.hasrole(rolename):
                 abort(403)
             return f(*args, **kwargs)
         return decorated_function
     return decorator
-
-
-def admin_required(f):
-    return permission_required(Permission.ADMIN)(f)

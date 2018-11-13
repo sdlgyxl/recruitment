@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="884d3b84-9fef-4057-8f42-8c15d5f1ed86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/main/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/main/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,6 +107,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="flaskenv" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="11" />
           <entry key="png" value="1" />
@@ -114,60 +118,14 @@
         <counts>
           <entry key="HTML" value="11" />
           <entry key="Image" value="1" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="30" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-990">
-              <caret line="68" column="45" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="45" />
-              <folding>
-                <element signature="e#134#157#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/main/user/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
-              <folding>
-                <element signature="e#136#165#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -489,7 +447,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -547,7 +504,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Anaconda3/envs/test_py3/Lib/site-packages/flask_wtf/form.py" />
     <entry file="file://D:/Anaconda3/envs/test_py3/Lib/datetime.py" />
     <entry file="uml://Python/#E:/github/mycode/recruitment/run.py">
       <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -746,40 +702,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
+    <entry file="file://$PROJECT_DIR$/.flaskenv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990">
-          <caret line="68" column="45" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="45" />
-          <folding>
-            <element signature="e#134#157#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="193">
+          <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/main/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
           <folding>
             <element signature="e#136#165#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/models/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="-952">
+          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+          <folding>
+            <element signature="e#134#157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

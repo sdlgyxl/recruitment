@@ -10,7 +10,7 @@ from app import db, login
 from flask_login import UserMixin
 from .commons import PaginatedAPIMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.models.commons import OfficeLocation, JobState
+from app.models.commons import OfficeLocation, JobState, Privilege
 
 class Dept(db.Model):
     __tablename__ = 'depts'
@@ -45,7 +45,9 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
     dept_id = db.Column(db.Integer, db.ForeignKey('depts.id'))
     dept = db.relationship('Dept', backref=db.backref('depts', lazy='dynamic'))
     superior = db.Column(db.Integer, db.ForeignKey('users.id'))
-    superior_name = db.relationship("User", remote_side=[id], backref=db.backref('childs', lazy='dynamic'))
+    superioruser = db.relationship("User", remote_side=[id], backref=db.backref('childs', lazy='dynamic'))
+    #lowerusers = db.relationship("User", remote_side=[superior], backref=db.backref('childs', lazy='dynamic'))
+    children = db.relationship("User", lazy="joined", join_depth=2)
     username = db.Column(db.String(20), index=True, unique=True)
     email = db.Column(db.String(50), index=True, unique=True)
     mobile = db.Column(db.String(11), index=True, unique=True)
@@ -65,10 +67,10 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
                                backref=db.backref('permissions', lazy='joined'),
                                lazy='dynamic')
     '''
-    '''
-    roles = db.relationship('Role', secondary=Permission,
+
+    roles = db.relationship('Role', secondary='permissions',
                               backref=db.backref('users', lazy='dynamic'), lazy='dynamic')
-    '''
+
     permissions = db.relationship('Permission',
                                foreign_keys=[Permission.user_id],
                                backref=db.backref('r', lazy='joined'),
@@ -128,18 +130,77 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
         else:
             return "禁止"
 
+    def hasrole(self, rolename):
+        if self.get_role_id(rolename) > 0:
+            return True
+        return False
 
+    def get_role_id(self, rolename):
+        role_id = 0
+        for r in self.roles:
+            if r.name == rolename:
+                role_id = r.id
+                break
+        return role_id
+
+    def get_privilege(self, rolename):
+        role_id = self.get_role_id(rolename)
+        if role_id > 0:
+            for p in self.permissions:
+                if p.role_id == role_id:
+                    return p.privilege
+        return 0
+
+    def can(self, rolename, privi):
+        if self.get_privilege(rolename) >= privi:
+            return True
+        return False
+
+    def haslower(self, userid):
+        if userid == self.id:
+            return False
+        user = User.query.get(userid)
+        while True:
+            if not user:
+                return False
+            if user.id == self.id:
+                return True
+            user = user.superior_user
+
+    def can_see_users(self, privi):
+        from sqlalchemy import or_, and_
+        if privi == Privilege.禁止:
+            return and_(False)
+        if privi == Privilege.本人:
+            return and_(User.id==self.id)
+        if privi == Privilege.本部门:
+            return and_(User.dept_id==self.dept_id)
+        if privi == Privilege.本部门及所有下级部门:
+            str_proc = 'call procDeptsByAllLowersSelect(%d)' % self.dept_id
+            deptids = db.session.execute(str_proc).fetchall()
+            list_dept = deptids[0][0].split(',')
+            list_dept.append(self.dept_id)
+            return and_(User.dept_id.in_(list_dept))
+        if privi == Privilege.全部:
+            return and_(True)
+
+    '''
     def can(self, perm, privi):
         for each in self.roles:
             if each.role_id == perm and each.privilege >= privi:
                 return True
         return False
+    '''
 
-    def can2(self, perm, privi):
-        for each in self.roles:
-            if each.role_id == perm and each.privilege >= privi:
-                return True
-        return False
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+'''
+class Node(db.Model):
+    __tablename__ = 'node'
+    id = db.Column(db.Integer, primary_key=True)
+    parent_id = db.Column(db.Integer, db.ForeignKey('node.id'))
+    data = db.Column(db.String(50))
+    children = db.relationship("Node", backref=db.backref('parent', remote_side=[id]), join_depth=4)
+'''

@@ -5,28 +5,31 @@
 # @Site    : 公司后台
 # @File    : views.py
 from datetime import datetime
-from flask import render_template, redirect, url_for, abort, flash, request, current_app, make_response
+from flask import render_template, redirect, url_for, abort, flash, request, current_app, make_response, jsonify
 from flask_login import current_user, login_required
+from sqlalchemy import or_
 from .forms import EditUserForm, AddUserForm, TestForm, UserSearchForm
 from app import db
 from app.models.user import User, Dept
-from sqlalchemy import or_
+from app.models.commons import Privilege
 from app.libs.redprint import Redprint
 rp = Redprint('user')
+from app.decorators import role_required
 
 @rp.route("/")
 @rp.route("/index/", methods=['GET', 'POST'])
 @login_required
+@role_required("用户列表")
 def user_index(query=None):
     page = request.args.get('page', 1, type=int)
     query = request.args.get('q', '').strip()
+    privi = current_user.get_privilege("用户列表")
+    c = current_user.can_see_users(privi)
     if query:
         query = query.replace("'", "")
-        c = or_(User.name.like('%{}%'.format(query)), User.username.like('%{}%'.format(query)))
+        c += or_(User.name.like('%{}%'.format(query)), User.username.like('%{}%'.format(query)))
         c += or_(User.position.like('%{}%'.format(query)))
-        users = User.query.filter(c).order_by(User.id)
-    else:
-        users = User.query.order_by(User.id)
+    users = User.query.filter(c).order_by(User.id)
     pagination = users.paginate(page, current_app.config['POSTS_PER_PAGE'], False)
 
     #next_url = url_for('main.user_index', page=pagination.next_num, q=query) if pagination.has_next else None
@@ -39,6 +42,7 @@ def user_index(query=None):
 
 @rp.route("/add", methods=['GET', 'POST'])
 @login_required
+@role_required("用户信息修改")
 def user_add():
     form = AddUserForm()
     if form.validate_on_submit():
@@ -122,6 +126,12 @@ def user_edit(id):
 @rp.route("/delete/<id>")
 def user_delete(id):
     return "name = %s" % id
+
+@rp.route("/updatepassword", methods=['GET', 'POST'])
+def user_update_password():
+    id = request.args.get('id', 1, type=int)
+    password = request.args.get('password', 1, type=str)
+    return jsonify({"id":id, "password":password})
 
 
 @rp.route("/test/", methods=['GET', 'POST'])

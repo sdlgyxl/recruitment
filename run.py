@@ -1,6 +1,6 @@
 import time
 from app import create_app, db
-from app.models.user import User, Dept, Role, Permission
+from app.models.user import User, Dept, Role, Permission    #, Node
 from app.models.commons import Privilege
 import click
 
@@ -8,8 +8,7 @@ app = create_app()
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db': db, 'User': User, 'Dept': Dept, 'Permission': Permission,
-            'Role': Role}
+    return {'db': db, 'User': User, 'Dept': Dept, 'Permission': Permission, 'Role': Role}   #, 'Node': Node}
 
 @app.cli.command()
 @click.option('--coverage/--no-coverage', default=False, help='aaa')
@@ -18,16 +17,14 @@ def test(coverage=False):
     users = User.query.all()
     u=users[0]
     for each in u.roles:
-        print(each)
-    print('u.can(1, 3)=', u.can(1, 3))
-
+        print(each, each.name)
+    print('u.can2("用户列表", Privilege.本部门及所有下级部门)=', u.can2("用户列表", Privilege.本部门及所有下级部门))
 
 @app.cli.command()
 def initdb():
     click.echo('初始化数据库')
     from datetime import datetime
 
-    '''
     depts = [Dept(id=1001, name='总部', superior=None, is_active=1, cr_date=datetime.now()),
         Dept(id=1011, name='财务部', superior=1001, is_active=1, cr_date=datetime.now()),
         Dept(id=1021, name='人力资源部', superior=1001, is_active=1, cr_date=datetime.now()),
@@ -77,7 +74,7 @@ def initdb():
         Permission(user_id=1012, role_id=5, privilege=Privilege.本人)
     ]
     db.session.add_all(permissions)
-    '''
+
 
 #print(app.url_map)
 #initdb()
