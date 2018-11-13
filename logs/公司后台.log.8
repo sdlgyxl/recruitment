@@ -1,4 +1,4 @@
-2018-11-10 18:06:56,135 ERROR: Exception on /user/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+2018-11-11 00:09:47,400 ERROR: Exception on /user/index/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 27, in user_index
-    title='用户列表', next_url=next_url, prev_url=prev_url)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 36, in user_index
+    form=searchform, q=query if query else None)
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 117, in _render
@@ -40,20 +42,17 @@ Traceback (most recent call last):
     {% block content -%}
   File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 73, in block "content"
     {% block app_content %}{% endblock %}
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 20, in block "app_content"
-    <a href="{{ url_for('main.user_edit', id=user.id) }}">{{ user.name }}</a>
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.user_edit' with values ['id']. Did you forget to specify values ['page']?
-2018-11-10 18:07:18,411 ERROR: Exception on /user/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 90, in block "app_content"
+    {{ macros.pagination_widget(pagination, '.user_index', q) }}
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "E:\GitHub\mycode\recruitment\app\templates\_macros.html", line 12, in template
+    <a href="{{ url_for(endpoint, page = p, q=q, **kwargs) }}{{ fragment }}">{{ p }}</a>
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 305, in url_for
+    if endpoint[:1] == '.':
+TypeError: 'NoneType' object is not subscriptable
+2018-11-11 00:10:19,906 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:10:22,963 ERROR: Exception on /user/index/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -67,8 +66,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 27, in user_index
-    title='用户列表', next_url=next_url, prev_url=prev_url)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 36, in user_index
+    form=searchform, q=query if query else None)
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 117, in _render
@@ -95,19 +96,12 @@ Traceback (most recent call last):
     {% block content -%}
   File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 73, in block "content"
     {% block app_content %}{% endblock %}
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 20, in block "app_content"
-    <a href="{{ url_for('main.user_edit', id=user.id) }}">{{ user.name }}</a>
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.user_edit' with values ['id']. Did you forget to specify values ['page']?
-2018-11-10 18:07:32,144 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 18:11:18,258 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 18:17:16,823 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 90, in block "app_content"
+    {{ macros.pagination_widget(pagination, '.user_index', q) }}
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "E:\GitHub\mycode\recruitment\app\templates\_macros.html", line 12, in template
+    <a href="{{ url_for(endpoint, page = p, q=query, **kwargs) }}{{ fragment }}">{{ p }}</a>
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 305, in url_for
+    if endpoint[:1] == '.':
+TypeError: 'NoneType' object is not subscriptable

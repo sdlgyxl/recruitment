@@ -1,4 +1,4 @@
-2018-11-10 16:14:49,548 ERROR: Exception on /user/edit/1010 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+2018-11-10 20:11:02,337 ERROR: Exception on /user/index/张 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,110 +12,103 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 109, in user_edit
-    return render_template('main/user/edit.html', form=form, user=user)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\edit.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 73, in block "content"
-    {% block app_content %}{% endblock %}
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\edit.html", line 12, in block "app_content"
-    {{ wtf.quick_form(form, form_type="horizontal") }}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
-    {{ form_field(field,
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 104, in template
-    {{field(class="form-control", **kwargs)|safe}}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
-    return self.meta.render_field(self, kwargs)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\wtforms\meta.py", line 56, in render_field
-    return field.widget(field, **render_kw)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
-    for val, label, selected in field.iter_choices():
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\wtforms\fields\core.py", line 454, in iter_choices
-    for value, label in self.choices:
-TypeError: 'NoneType' object is not iterable
-2018-11-10 16:17:10,788 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 16:18:05,267 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 16:19:10,533 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 17:57:17,321 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 18:04:11,171 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-10 18:04:39,166 ERROR: Exception on /user/index/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
   File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 27, in user_index
-    title='用户列表', next_url=next_url, prev_url=prev_url)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 2, in top-level template code
-    {% import "_macros.html" as macros %}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 73, in block "content"
-    {% block app_content %}{% endblock %}
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 20, in block "app_content"
-    <a href="{{ url_for('main.user_edit', id=user.id) }}">{{ user.name }}</a>
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    users = User.query.filter_by(User.name.like('%%s%' % query.replace("'", ""))).order_by(User.id)
+ValueError: incomplete format
+2018-11-10 20:12:19,772 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:12:25,359 ERROR: Exception on /user/index/张 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.user_edit' with values ['id']. Did you forget to specify values ['page']?
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 28, in user_index
+    users = User.query.filter_by(User.name.like('%' + query + '%')).order_by(User.id)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2018-11-10 20:12:53,386 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:16:34,285 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:16:40,531 ERROR: Exception on /user/index/张 [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 28, in user_index
+    users = User.query.filter(or_(User.name.like('%' + query + '%'), User.username.like('%' + query + '%'))).order_by(User.id)
+NameError: name 'or_' is not defined
+2018-11-10 20:18:41,993 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:19:34,745 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:20:38,052 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:20:42,749 ERROR: Exception on /user/index/s [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 26, in user_index
+    users = User.query.filter(or_(User.name.like('%{]%'.format(query)), User.username.like('%{]%'.format(query)))).order_by(User.id)
+ValueError: expected '}' before end of string
+2018-11-10 20:21:18,841 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:24:35,264 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:24:40,535 ERROR: Exception on /user/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 24, in user_index
+    query = query.replace("'", "")
+AttributeError: 'NoneType' object has no attribute 'replace'
+2018-11-10 20:25:09,171 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 20:38:41,348 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:51:24,758 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:56:48,771 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:58:07,595 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-10 23:59:11,098 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:01:08,003 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:03:23,735 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:04:24,145 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:06:20,328 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-11 00:09:41,916 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]

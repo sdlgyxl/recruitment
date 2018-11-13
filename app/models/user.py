@@ -167,6 +167,28 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
                 return True
             user = user.superior_user
 
+    def cando(self, rolename, userid):
+        privi = self.get_privilege(rolename)
+        print("privi=",privi, self.id, userid)
+        if privi == Privilege.禁止:
+            return False
+        if privi == Privilege.本人:
+            return self.id == userid
+        if privi == Privilege.本部门:
+            user = User.query.get(userid).first()
+            return user.dept_id == self.dept_id
+        if privi == Privilege.本部门及所有下级部门:
+            user = User.query.get(userid).first()
+            if user.dept_id == self.dept_id:
+                return True
+            str_proc = 'call procDeptsByAllLowersSelect(%d)' % self.dept_id
+            list_dept = db.session.execute(str_proc).fetchall()[0][0].split(',')
+            if str(user.dept_id) in list_dept:
+                return True
+        if privi == Privilege.全部:
+            return True
+        return False
+
     def can_see_users(self, privi):
         from sqlalchemy import or_, and_
         if privi == Privilege.禁止:

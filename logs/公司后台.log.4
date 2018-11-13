@@ -1,116 +1,116 @@
-2018-11-11 00:10:50,225 ERROR: Exception on /user/index/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+2018-11-12 20:39:49,931 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 20:41:33,778 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 20:50:25,580 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 20:51:03,714 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 20:51:15,185 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 20:52:26,559 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 20:54:43,708 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:01:23,308 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:01:28,899 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:05:49,652 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:06:30,790 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:08:52,919 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:08:59,803 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:09:09,579 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:11:38,699 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:12:39,479 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:12:55,593 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:12:59,158 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:13:22,979 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:14:00,682 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:15:08,051 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:15:24,313 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:19:33,852 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:19:47,896 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:20:24,653 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:20:31,357 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:22:12,217 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+2018-11-12 21:23:08,426 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:88]
+2018-11-12 21:24:51,818 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:28:07,111 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:28:19,970 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:28:59,273 ERROR: Exception on /auth/login [POST] [in d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 36, in user_index
-    form=searchform, q=query if query else None)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 2, in top-level template code
-    {% import "_macros.html" as macros %}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 73, in block "content"
-    {% block app_content %}{% endblock %}
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 90, in block "app_content"
-    {{ macros.pagination_widget(pagination, '.user_index', q) }}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "E:\GitHub\mycode\recruitment\app\templates\_macros.html", line 12, in template
-    <a href="{{ url_for(endpoint, page = p, q=query, **kwargs) }}{{ fragment }}">{{ p }}</a>
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 305, in url_for
-    if endpoint[:1] == '.':
-TypeError: 'NoneType' object is not subscriptable
-2018-11-11 00:11:54,072 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
-2018-11-11 00:11:57,530 ERROR: Exception on /user/index/ [GET] [in D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\ext\declarative\clsregistry.py", line 281, in __call__
+    x = eval(self.arg, globals(), self._dict)
+  File "<string>", line 1, in <module>
+NameError: name 'Permission' is not defined
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "E:\GitHub\mycode\recruitment\app\main\user\views.py", line 36, in user_index
-    form=searchform, q=query)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "E:\GitHub\mycode\recruitment\app\auth\views.py", line 22, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask_sqlalchemy\__init__.py", line 512, in __get__
+    mapper = orm.class_mapper(type)
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\base.py", line 421, in class_mapper
+    mapper = _inspect_mapped_class(class_, configure=configure)
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\base.py", line 400, in _inspect_mapped_class
+    mapper._configure_all()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\mapper.py", line 1276, in _configure_all
+    configure_mappers()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\mapper.py", line 3033, in configure_mappers
+    mapper._post_configure_properties()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\mapper.py", line 1832, in _post_configure_properties
+    prop.init()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\interfaces.py", line 183, in init
+    self.do_init()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\relationships.py", line 1655, in do_init
+    self._process_dependent_arguments()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\relationships.py", line 1680, in _process_dependent_arguments
+    setattr(self, attr, attr_value())
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\ext\declarative\clsregistry.py", line 293, in __call__
+    (self.prop.parent, self.arg, n.args[0], self.cls)
+sqlalchemy.exc.InvalidRequestError: When initializing mapper Mapper|User|users, expression 'Permission' failed to locate a name ("name 'Permission' is not defined"). If this is a class name, consider adding this relationship() to the <class 'app.models.user.User'> class after both dependent classes have been defined.
+2018-11-12 21:29:11,138 ERROR: Exception on /auth/login [POST] [in d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 2, in top-level template code
-    {% import "_macros.html" as macros %}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\GitHub\mycode\recruitment\app\templates\base.html", line 73, in block "content"
-    {% block app_content %}{% endblock %}
-  File "E:\GitHub\mycode\recruitment\app\templates\main\user\index.html", line 90, in block "app_content"
-    {{ macros.pagination_widget(pagination, '.user_index', q) }}
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
-    rv = self._func(*arguments)
-  File "E:\GitHub\mycode\recruitment\app\templates\_macros.html", line 12, in template
-    <a href="{{ url_for(endpoint, page = p, q=query, **kwargs) }}{{ fragment }}">{{ p }}</a>
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Develop\Anaconda\envs\py37\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint '' with values ['page', 'q']. Did you mean 'auth.reset_password_request' instead?
-2018-11-11 00:12:41,089 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:85]
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\GitHub\mycode\recruitment\app\auth\views.py", line 22, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\flask_sqlalchemy\__init__.py", line 512, in __get__
+    mapper = orm.class_mapper(type)
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\base.py", line 421, in class_mapper
+    mapper = _inspect_mapped_class(class_, configure=configure)
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\base.py", line 400, in _inspect_mapped_class
+    mapper._configure_all()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\mapper.py", line 1276, in _configure_all
+    configure_mappers()
+  File "d:\develop\anaconda\envs\py37\lib\site-packages\sqlalchemy\orm\mapper.py", line 3030, in configure_mappers
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper|User|users'. Original exception was: When initializing mapper Mapper|User|users, expression 'Permission' failed to locate a name ("name 'Permission' is not defined"). If this is a class name, consider adding this relationship() to the <class 'app.models.user.User'> class after both dependent classes have been defined.
+2018-11-12 21:30:45,411 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:30:58,523 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:31:02,119 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:31:04,878 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:32:34,590 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:33:04,337 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:34:24,860 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:34:32,779 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:36:02,936 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:36:28,662 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:37:25,303 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 21:42:31,746 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]
+2018-11-12 22:10:41,726 INFO: 公司后台 startup [in E:\GitHub\mycode\recruitment\app\__init__.py:86]

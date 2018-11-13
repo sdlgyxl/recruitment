@@ -7,7 +7,7 @@
 from datetime import datetime
 from flask import render_template, redirect, url_for, abort, flash, request, current_app, make_response, jsonify
 from flask_login import current_user, login_required
-from sqlalchemy import or_
+from sqlalchemy import or_, and_
 from .forms import EditUserForm, AddUserForm, TestForm, UserSearchForm
 from app import db
 from app.models.user import User, Dept
@@ -27,8 +27,9 @@ def user_index(query=None):
     c = current_user.can_see_users(privi)
     if query:
         query = query.replace("'", "")
-        c += or_(User.name.like('%{}%'.format(query)), User.username.like('%{}%'.format(query)))
-        c += or_(User.position.like('%{}%'.format(query)))
+        c = or_(User.name.like('%{}%'.format(query)), User.username.like('%{}%'.format(query)))
+        c = or_(User.position.like('%{}%'.format(query)), c)
+        c = and_(current_user.can_see_users(privi), c)
     users = User.query.filter(c).order_by(User.id)
     pagination = users.paginate(page, current_app.config['POSTS_PER_PAGE'], False)
 
@@ -131,7 +132,9 @@ def user_delete(id):
 def user_update_password():
     id = request.args.get('id', 1, type=int)
     password = request.args.get('password', 1, type=str)
-    return jsonify({"id":id, "password":password})
+    if current_user.cando("用户密码修改", id):
+        return jsonify({"id": 9999, "password": "okokokok"})
+    return jsonify({"id": id, "password": "error"})
 
 
 @rp.route("/test/", methods=['GET', 'POST'])
