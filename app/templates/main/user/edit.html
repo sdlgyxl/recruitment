@@ -12,3 +12,35 @@
     {{ wtf.quick_form(form, form_type="horizontal") }}
   </div>
 {% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    $('#dept').on('change', function()
+    {
+      fillSuperior();
+    });
+    function clearSuperior() {
+      var selOpt = $("#superior option");
+      selOpt.remove();
+    }
+    function fillSuperior(){
+      if($('#id').val() == 1001) return;
+      clearSuperior();
+      var data={
+        'deptid':$('#dept').val()
+      }
+      $.ajax({
+        type:'GET',
+        url:'/user/deptmanagers',
+        data:data,
+        dataType:'json',
+        success:function(data){
+          selector=$('#superior');
+          for(var i=0;i<data.length;i++){
+            selector.append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
+          }
+        }
+      });
+    }
+  </script>
+{% endblock %}

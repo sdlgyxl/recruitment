@@ -137,6 +137,23 @@ def user_update_password():
     return jsonify({"id": id, "password": "error"})
 
 
+@rp.route("/deptmanagers", methods=['GET', 'POST'])
+def dept_managers():
+    deptid = request.args.get('deptid', 1, type=int)
+    print('deptid',deptid)
+    dept = Dept.query.get(deptid)
+    str_sql = 'select id, name from users where is_manager = 1 and dept_id in(%s' % deptid
+    if dept.superior:
+        str_sql += "," + str(dept.superior)
+    str_sql += ')'
+    print('str_sql',str_sql)
+    rst = db.session.execute(str_sql).fetchall()
+    jsonlist = []
+    for row in rst:
+        jsonlist.append({'id': row[0], 'name': row[1]})
+    return jsonify(jsonlist)
+
+
 @rp.route("/test/", methods=['GET', 'POST'])
 def user_test():
     form = TestForm()
