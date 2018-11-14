@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="884d3b84-9fef-4057-8f42-8c15d5f1ed86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/main/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/main/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/main/user/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/公司后台.log.10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/logs/公司后台.log.4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.5" beforeDir="false" afterPath="$PROJECT_DIR$/logs/公司后台.log.5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/logs/公司后台.log.7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/公司后台.log.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/公司后台.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/公司后台.log.9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +90,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="11" />
+          <entry key="gitignore" value="17" />
           <entry key="html" value="339" />
           <entry key="py" value="1976" />
         </counts>
@@ -108,14 +98,14 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="339" />
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="PLAIN_TEXT" value="17" />
           <entry key="Python" value="1976" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="flaskenv" value="1" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="html" value="12" />
           <entry key="png" value="1" />
           <entry key="py" value="32" />
@@ -125,7 +115,7 @@
         <counts>
           <entry key="HTML" value="12" />
           <entry key="Image" value="1" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="32" />
         </counts>
       </usages-collector>
@@ -133,7 +123,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/main/user/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="355">
@@ -141,6 +131,15 @@
               <folding>
                 <element signature="e#136#165#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -265,10 +264,10 @@
         <option value="$PROJECT_DIR$/app/main/user/forms.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/run.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/templates/main/user/index.html" />
         <option value="$PROJECT_DIR$/app/models/user.py" />
         <option value="$PROJECT_DIR$/app/main/user/views.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -333,23 +332,7 @@
             <path>
               <item name="recruitment" type="b2602c69:ProjectViewProjectNode" />
               <item name="recruitment" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="recruitment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="recruitment" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="recruitment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="recruitment" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -541,10 +524,10 @@
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.15671642" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.15671642" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33333334" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33333334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -802,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -844,6 +820,13 @@
           <folding>
             <element signature="e#136#165#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
