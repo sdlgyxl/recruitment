@@ -1,6 +1,7 @@
 import time
 from app import create_app, db
-from app.models.user import User, Dept, Role, Permission  # , Node
+from app.models.user import User, Dept, Role, Permission
+from app.models.job import Company, Job
 from app.models.commons import Privilege
 import click
 
@@ -76,6 +77,6 @@ def initdb():
     ]
     db.session.add_all(permissions)
 
-# print(app.url_map)
+#print(app.url_map)
 # initdb()
 # app.run()

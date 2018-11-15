@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block app_content %}
+  <div>
+    <div class="col-md-4"><h1>Hi, {{ current_user.name }}</h1></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <form class="form-search" style="margin-top: 20px" method="get" action="{{ url_for('main.user_index') }}">
+        {{ form.q(size=20, class='form-control', placeholder=form.q.label.text) }}
+      </form>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+  <div class="table-responsive col-md-12">
+  <div class="table-responsive">
+  <table class="table table-hover table-striped table-condensed">
+    <tr>
+      <td width="4%">编号</td>
+      <td width="10%">公司名称</td>
+      <td width="6%">HR姓名</td>
+      <td width="6%">用户名</td>
+      <td width="5%">手机</td>
+      <td width="8%">邮箱</td>
+      <td width="8%">办公地点</td>
+      <td width="8%">公司网址</td>
+      <td width="5%">顾问</td>
+      <td width="8%">注册时间</td>
+      <td width="5%"></td>
+      <td width="5%"></td>
+    </tr>
+    {% for company in companys %}
+      <tr>       
+        <td>{{ company.id }}</td>
+        <td>{{ company.companyname }}</td>
+        <td>{{ company.hr_name }}</td>
+        <td>{{ company.username }}</td>
+        <td>{{ company.mobile }}</td>
+        <td>{{ company.email }}</td>
+        <td>{{ company.location }}</td>
+        <td>{{ company.homepage }}</td>
+        <td>{{ company.consultant_info.name }}</td>
+        <td>{{ company.cr_date }}</td>
+        <td>
+          <a href="/company/edit/{{ company.id }}">编辑</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" onclick="values({{ company.id }})">
+            修改密码
+          </button>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+  </div>
+  <nav aria-label="..." style="text-align: center">
+    <div class="pagination">
+      {{ macros.pagination_widget(pagination, '.index', q) }}
+    </div>
+  </nav>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="companyid" name="companyid">
+          <input type="text" id="password" name="password" class="form-control" placeholder="请输入新密码" >
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" onclick="update_password();">提交更改</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
+  <script>
+  function update_password(){
+    var data={
+      'companyid':$('#companyid').val(),
+      'password':$('#password').val()
+    }
+    $('#password').val('')
+    $('#myModal').modal('hide');
+    $.ajax({
+      type:'GET',
+      url:'/company/updatepassword?id=' + data.companyid + '&password=' + data.password,
+      data:data,
+      dataType:'json',
+      success:function(data) {
+        alert(data.state);
+      }
+    });
+  }
+  function values(ID){
+    $('#companyid').val(ID);
+  }
+  </script>
+{% endblock %}

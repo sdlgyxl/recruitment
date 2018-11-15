@@ -61,3 +61,37 @@ class PaginatedAPIMixin(object):
             }
         }
         return data
+
+
+class Industry:
+    电子 = 1
+    机械 = 2
+    互联网 = 3
+    交通 = 4
+    行政 = 5
+
+IndustryChoices = [(Industry.__dict__[x], x)
+                   for x in vars(Industry) if '_' not in x]
+
+class UserLevel:
+    一级 = 1
+    二级 = 2
+    三级 = 3
+    四级 = 4
+
+
+UserLevelChoices = [(UserLevel.__dict__[x], x)
+                   for x in vars(UserLevel) if '_' not in x]
+
+
+class City:
+    北京 = 1
+    上海 = 2
+    广州 = 3
+    青岛 = 4
+
+
+CityChoices = [(City.__dict__[x], x)
+                    for x in vars(City) if '_' not in x]
+
+

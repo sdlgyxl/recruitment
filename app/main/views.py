@@ -26,8 +26,3 @@ def index():
         name = current_user.name
     return render_template('main/index.html', title="首页", name=name)
 
-@bp.route('/explore')
-def explore():
-    return 'explore'
-
-
