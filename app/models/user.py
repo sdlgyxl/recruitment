@@ -11,6 +11,7 @@ from flask_login import UserMixin
 from .commons import PaginatedAPIMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.commons import OfficeLocation, JobState, Privilege
+from dateutil import rrule
 
 class Dept(db.Model):
     __tablename__ = 'depts'
@@ -129,6 +130,21 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
             return "登录"
         else:
             return "禁止"
+
+
+    @property
+    def age(self):
+        if self.birthday:
+            return rrule.rrule(rrule.YEARLY, dtstart=self.birthday, until=datetime.now()).count()
+        return ""
+
+
+    @property
+    def service_length(self):
+        if self.entrydate:
+            return rrule.rrule(rrule.YEARLY, dtstart=self.entrydate, until=datetime.now()).count()
+        return ""
+
 
     def hasrole(self, rolename):
         if self.get_role_id(rolename) > 0:

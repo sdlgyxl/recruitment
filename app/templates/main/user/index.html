@@ -11,63 +11,58 @@
       </form>
     </div>
   </div>
-  <table class="table table-hover">
+  <div style="clear:both"></div>
+  <div class="table-responsive col-md-12">
+  <div class="table-responsive">
+  <table class="table table-hover table-striped table-condensed">
+    <tr>
+      <td width="4%"></td>
+      <td width="4%">工号</td>
+      <td width="6%">姓名</td>
+      <td width="6%">部门</td>
+      <td width="5%">上级</td>
+      <td width="5%">用户名</td>
+      <td width="10%">邮箱</td>
+      <td width="8%">手机</td>
+      <td width="4%">是否经理</td>
+      <td width="3%">年龄</td>
+      <td width="3%">工龄</td>
+      <td width="5%">职务</td>
+      <td width="4%">办公地</td>
+      <td width="4%">职业状态</td>
+      <td width="4%">允许登录</td>
+      <td width="5%"></td>
+      <td width="5%"></td>
+    </tr>
     {% for user in users %}
       <tr>
-        <td width="5%">
+        <td>
         {% if user.photo %}
           <img src="/static/{{ user.photo }}" style="width: 40px;height:40px;" />
         {% else %}
           <img src="{{ user.avatar(40) }}" style="width: 40px;height:40px;" />
         {%  endif %}
         </td>
-        <td width="5%">
-          {{ user.id }}
-        </td>
-        <td width="5%">
+        <td> {{ user.id }} </td>
+        <td>
           <a href="{{ url_for('main.user_edit', id=user.id, page=request.args.get('page') or 1) }}">{{ user.name }}</a>
         </td>
-        <td width="5%">
-          {{ user.dept.name }}
-        </td>
-        <td width="5%">
-          {{ user.superioruser.name }}
-        </td>
-        <td width="5%">
-          {{ user.username }}
-        </td>
-        <td width="5%">
-          {{ user.email }}
-        </td>
-        <td width="5%">
-          {{ user.mobile }}
-        </td>
-        <td width="5%">
-          {{ user.manager_state }}
-        </td>
-        <td width="8%">
-          {{ user.birthday.strftime("%Y-%m-%d") }}
-        </td>
-        <td width="8%">
-          {{ user.entrydate.strftime("%Y-%m-%d") }}
-        </td>
-        <td width="5%">
-          {{ user.position }}
-        </td>
-        <td width="5%">
-          {{ user.office }}
-        </td>
-        <td width="5%">
-          {{ user.jobstate }}
-        </td>
-        <td width="5%">
-          {{ user.loginstate }}
-        </td>
+        <td> {{ user.dept.name }} </td>
+        <td> {{ user.superioruser.name }} </td>
+        <td> {{ user.username }} </td>
+        <td> {{ user.email }} </td>
+        <td> {{ user.mobile }} </td>
+        <td> {{ user.manager_state }} </td>
+        <td> {{ user.age }} </td>
+        <td> {{ user.service_length }} </td>
+        <td> {{ user.position }} </td>
+        <td> {{ user.office }} </td>
+        <td> {{ user.jobstate }} </td>
+        <td> {{ user.loginstate }} </td>
         <td>
-        <td width="5%">
           <a href="/user/edit/{{ user.id }}">编辑</a>
         </td>
-        <td width="5%">
+        <td>
           <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" onclick="values({{ user.id }})">
             修改密码
           </button>
@@ -75,6 +70,7 @@
       </tr>
     {% endfor %}
   </table>
+  </div>
   <nav aria-label="..." style="text-align: center">
     <div class="pagination">
       {{ macros.pagination_widget(pagination, '.user_index', q) }}
@@ -108,13 +104,13 @@
     $('#new_password').val('')
     $('#myModal').modal('hide');
     $.ajax({
-        type:'GET',
-        url:'/user/updatepassword?id=' + data.user_id + '&password=' + data.new_password,
-        data:data,
-        dataType:'json',
-        success:function(data){
-            alert(JSON.stringify(data));
-        }
+      type:'GET',
+      url:'/user/updatepassword?id=' + data.user_id + '&password=' + data.new_password,
+      data:data,
+      dataType:'json',
+      success:function(data) {
+        alert(data.state);
+      }
     });
   }
   function values(ID){

@@ -8,8 +8,8 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from elasticsearch import Elasticsearch
-#from redis import Redis
-#import rq
+# from redis import Redis
+# import rq
 from config import Config
 
 db = SQLAlchemy()
@@ -24,7 +24,7 @@ bootstrap = Bootstrap()
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-    
+
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
@@ -33,8 +33,8 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
         if app.config['ELASTICSEARCH_URL'] else None
-    #app.redis = Redis.from_url(app.config['REDIS_URL'])
-    #app.task_queue = rq.Queue('microblog-tasks', connection=app.redis)
+    # app.redis = Redis.from_url(app.config['REDIS_URL'])
+    # app.task_queue = rq.Queue('microblog-tasks', connection=app.redis)
 
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
@@ -87,4 +87,4 @@ def create_app(config_class=Config):
 
     return app
 
-#from app import models
+# from app import models

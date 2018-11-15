@@ -39,17 +39,42 @@ class AddUserForm(FlaskForm):
     office_location = SelectField("办公地点", coerce=int, choices = OfficeLocationChoices, validators=[DataRequired()])
     job_state = SelectField("工作状态", coerce=int, default=0, choices = JobStateChoices)
     profile = TextAreaField("个人简介", render_kw={"style": "height:120px"})
-    photo = FileField("照片", validators=[FileAllowed(['jpg', 'png', 'gif'], '只能是.jpg .gif .png格式')])
     can_login = RadioField("登录状态", coerce=int, choices = [(1, '允许登录'), (0, '禁止登陆')], default=1, render_kw={"class" : "form-inline"} )
     is_manager = RadioField("部门经理", coerce=int, choices = [(0, '职员'), (1, '经理')], default=0)
+    photo = FileField("照片", validators=[FileAllowed(['jpg', 'png', 'gif'], '只能是.jpg .gif .png格式')])
     submit = SubmitField('保存')
+
 
     def __init__(self, *args, **kwargs):
         super(AddUserForm, self).__init__(*args, **kwargs)
         self.dept.choices = [(dept.id, dept.name)
                              for dept in Dept.query.order_by(Dept.superior, Dept.id).all()]
-        self.superior.choices = [(superior.id, str(superior.id) + '--' + superior.name)
+        self.superior.choices = [(0, '请选择')] + [(superior.id, str(superior.id) + '--' + superior.name)
                              for superior in User.query.filter_by(is_manager = 1).order_by(User.superior, User.id).all()]
+
+
+    def validate_email(self, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('邮箱已经存在')
+
+    def validate_username(self, field):
+        if User.query.filter_by(username=field.data).first():
+            raise ValidationError('用户名已经存在')
+
+    def validate_mobile(self, field):
+        if User.query.filter_by(mobile=field.data).first():
+            raise ValidationError('手机号已经存在')
+
+
+class EditUserForm(AddUserForm):
+    password = None
+    photo_clear = BooleanField('删除照片')
+    submit = SubmitField('保存')
+
+    def __init__(self, user, *args, **kwargs):
+        super(EditUserForm, self).__init__(*args, **kwargs)
+        self.user = user
+        self.id.render_kw["readonly"] = "readonly"
 
     def validate_email(self, field):
         if field.data != self.user.email and \
@@ -67,13 +92,6 @@ class AddUserForm(FlaskForm):
             raise ValidationError('手机号已经存在')
 
 
-class EditUserForm(AddUserForm):
-    password = None
-
-    def __init__(self, user, *args, **kwargs):
-        super(EditUserForm, self).__init__(*args, **kwargs)
-        self.user = user
-
 class UserSearchForm(AddUserForm):
     q = StringField('搜索', validators=[DataRequired()])
 
@@ -88,5 +106,6 @@ class TestForm(FlaskForm):
                          #  指定文件上传的格式;
                          FileAllowed(['jpg', 'png', 'gif'], '只能是.jpg .gif .png格式')]
                       )
+    ceshi = BooleanField('删除照片')
     submit = SubmitField('确定')
 

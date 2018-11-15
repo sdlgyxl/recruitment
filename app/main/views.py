@@ -21,7 +21,10 @@ def before_request():
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('main/index.html', title="首页")
+    name = "world"
+    if not current_user.is_anonymous:
+        name = current_user.name
+    return render_template('main/index.html', title="首页", name=name)
 
 @bp.route('/explore')
 def explore():
