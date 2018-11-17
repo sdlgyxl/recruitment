@@ -77,6 +77,6 @@ def initdb():
     ]
     db.session.add_all(permissions)
 
-#print(app.url_map)
+print(app.url_map)
 # initdb()
 # app.run()

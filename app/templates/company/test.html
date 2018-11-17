@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+  <style>
+    .control-label{white-space:nowrap}
+    .radio{display: inline-block;}
+  </style>
+  <div class="page-header">
+    <h1>Hello {{ name }}</h1>
+  </div>
+  <div>
+    {% if form.name.errors %}
+      {{ form.name.errors[0] }}
+    {% endif %}
+  </div>
+  <div class="col-md-4">
+    <form action="{{ url_for('company.test') }}" method="post" >
+      # {{form.hidden_tag()}}里面放的也就是csrf_token
+      {{ form.csrf_token }}
+      {{ form.name.label() }}{{ form.name(id='xx',class='yyy') }}
+      {{ form.submit() }}
+    </form>
+  </div>
+{% endblock %}

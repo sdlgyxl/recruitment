@@ -11,7 +11,7 @@ from flask_login import current_user, login_required
 from app import db
 from app.company import bp
 from app.decorators import role_required
-from .forms import CompanyForm, EditCompanyForm, SearchForm
+from .forms import CompanyForm, EditCompanyForm, SearchForm, TestForm
 from app.models.job import Company, Job
 from app.models.commons import *
 
@@ -102,4 +102,17 @@ def update_password():
     company = Company.query.get(id)
     company.password = password
     return jsonify({"state": "已经成功修改密码"})
-    
+
+
+@bp.route('/test', methods=['GET', 'POST'])
+def test():
+    # 创建表单对象
+    form = TestForm()
+    name = None
+    # 表单校验
+    if form.validate_on_submit():
+        # 通过校验，则取出数据
+        name = form.name.data
+        form.name.data = ''
+        # 渲染时分配到模板文件
+    return render_template('/company/test.html', form=form, name=name)

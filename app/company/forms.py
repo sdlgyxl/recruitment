@@ -59,3 +59,8 @@ class EditCompanyForm(CompanyForm):
 
 class SearchForm(FlaskForm):
     q = StringField('搜索', validators=[DataRequired()])
+
+
+class TestForm(FlaskForm):
+    name = StringField('用户名', validators=[DataRequired()])
+    submit = SubmitField('提交')

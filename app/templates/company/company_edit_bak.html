@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+  <style>
+    .control-label{white-space:nowrap}
+    .radio{display: inline-block;}
+  </style>
+  <div class="page-header">
+    <h1>公司修改</h1>
+  </div>
+  <div class="col-md-4">
+    {{ wtf.quick_form(form, form_type="horizontal") }}
+  </div>
+{% endblock %}
